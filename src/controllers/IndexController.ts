@@ -1,3 +1,7 @@
+/**
+ * This is an example route controller
+ */
+
 import { Request, Response } from "express";
 import Controller from "../structs/Controller";
 

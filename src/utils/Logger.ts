@@ -1,3 +1,8 @@
+/**
+ * Logger Utility
+ * written by jabo-bernardo<hello.jabo.bernardo@gmail.com>
+ */
+
 import chalk from "chalk";
 import moment from "moment";
 

@@ -1,3 +1,8 @@
+/**
+ * Route Structure
+ * written by jabo-bernardo<hello.jabo.bernardo@gmail.com>
+ */
+
 import { Router } from "express";
 import Controller from "./Controller";
 

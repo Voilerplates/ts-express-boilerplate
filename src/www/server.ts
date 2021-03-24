@@ -4,11 +4,14 @@ import path from "path";
 
 // Utilities
 import Logger from "../utils/Logger";
+// IMPORT YOUR UTILITIES HERE!
 
 // Middlewares
 import morgan from "morgan";
 import helmet from "helmet";
 import cors from "cors";
+// IMPORT YOUR MIDDLEWARES HERE!
+// THEN INTEGRATE IT TO YOUR SERVER (SEE LINE 42)
 
 class Server implements IServer {
 
@@ -28,13 +31,9 @@ class Server implements IServer {
 		const routeFiles: string[] = fs.readdirSync(this.routesPath).filter(file => file.endsWith(".js"));
 		for(let route of routeFiles) {
 			let Router = (await import(`${this.routesPath}\\${route}`)).default;
-			Router = new Router();
 			let pathName: string = Router.routeName || route.replace(".js", "");
 			if(pathName.toLowerCase() === 'index') pathName = '';
-			if(!Router || typeof Router !== "object") {
-				Logger.error(`Ignoring ${`${this.routesPath}\\${route}`}, Invalid route.`);
-				continue;
-			}
+			if(!Router || typeof Router !== "object") {	Logger.error(`Ignoring ${`${this.routesPath}\\${route}`}, Invalid route.`);	continue;	}
 			this.app.use(`/${pathName}`, Router.router);
 			Logger.info(`Successfully loaded /${pathName}`);
 		}

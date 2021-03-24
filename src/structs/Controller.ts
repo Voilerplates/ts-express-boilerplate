@@ -1,3 +1,8 @@
+/**
+ * Controller Structure
+ * written by jabo-bernardo<hello.jabo.bernardo@gmail.com>
+ */
+
 import { Router } from "express";
 
 class Controller {
