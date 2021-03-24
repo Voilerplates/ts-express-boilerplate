@@ -29,7 +29,8 @@ class Server implements IServer {
 		for(let route of routeFiles) {
 			let Router = (await import(`${this.routesPath}\\${route}`)).default;
 			Router = new Router();
-			const pathName = Router.routeName || route.replace(".js", "");
+			let pathName: string = Router.routeName || route.replace(".js", "");
+			if(pathName.toLowerCase() === 'index') pathName = '';
 			if(!Router || typeof Router !== "object") {
 				Logger.error(`Ignoring ${`${this.routesPath}\\${route}`}, Invalid route.`);
 				continue;

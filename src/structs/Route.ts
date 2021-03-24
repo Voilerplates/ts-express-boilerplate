@@ -1,5 +1,4 @@
 import { Router } from "express";
-import Logger from "../utils/Logger";
 import Controller from "./Controller";
 
 class Route implements IRoute {

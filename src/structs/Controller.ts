@@ -1,5 +1,4 @@
 import { Router } from "express";
-import Logger from "../utils/Logger";
 
 class Controller {
 
@@ -12,7 +11,6 @@ class Controller {
 	setUpController(router: Router) {
 		for(let record of this.controllerMapping) {
 			const { path, method, fn } = record;
-			Logger.info(`Loading ${path} with HTTP method: ${method || 'get'}`);
 			if(method?.toLowerCase() === "post") {
 				router.post(path, fn);
 				continue;
